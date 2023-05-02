@@ -23,6 +23,11 @@ variable "auth_private_key_path" {
   description = "oci account auth private key path"
 }
 
+variable "auth_private_key" {
+  type = string
+  description = "oci account auth private key"
+}
+
 variable "compartment_id" {
   type = string
   description = "compartment_id"

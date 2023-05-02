@@ -7,11 +7,12 @@ terraform {
 }
 
 provider "oci" {
-  region           = var.region
-  fingerprint      = var.fingerprint
-  user_ocid        = var.user_ocid
-  tenancy_ocid     = var.tenancy_ocid
-  private_key_path = var.auth_private_key_path
+  region       = var.region
+  fingerprint  = var.fingerprint
+  user_ocid    = var.user_ocid
+  tenancy_ocid = var.tenancy_ocid
+  #private_key_path = var.auth_private_key_path
+  private_key = var.auth_private_key
 }
 
 #创建一个vcn
