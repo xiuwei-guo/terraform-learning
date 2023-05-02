@@ -80,6 +80,7 @@ module "compute-instance" {
   public_ip                   = "EPHEMERAL"
   shape                       = "VM.Standard.E4.Flex"
   count                       = 1
+  instance_display_name = "xiuwei.guo-test"
 }
 
 
