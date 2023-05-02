@@ -79,7 +79,7 @@ module "compute-instance" {
   instance_flex_ocpus         = 1
   public_ip                   = "EPHEMERAL"
   shape                       = "VM.Standard.E4.Flex"
-  count                       = 2
+  count                       = 1
   instance_display_name = "xiuwei.guo-test"
 }
 
