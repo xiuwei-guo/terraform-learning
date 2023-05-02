@@ -1,0 +1,7 @@
+  region = "us-ashburn-1"
+  fingerprint = ""
+  user_ocid = ""
+  tenancy_ocid = ""
+  auth_private_key_path = "the key path for api server"
+  compartment_id = ""
+  instance_ssh_public_keys = "public_key_for_instance"
