@@ -77,10 +77,11 @@ module "compute-instance" {
   ssh_public_keys             = var.instance_ssh_public_keys
   instance_flex_memory_in_gbs = 1
   instance_flex_ocpus         = 1
+  boot_volume_size_in_gbs     = 20
   public_ip                   = "EPHEMERAL"
   shape                       = "VM.Standard.E4.Flex"
   count                       = 1
-  instance_display_name = "xiuwei.guo-test"
+  instance_display_name       = "xiuwei.guo-test"
 }
 
 
