@@ -75,11 +75,11 @@ module "compute-instance" {
   source_ocid                 = data.oci_core_images.list_image.images[0].id
   subnet_ocids                = [oci_core_subnet.dev_network.id]
   ssh_public_keys             = var.instance_ssh_public_keys
-  instance_flex_memory_in_gbs = 2
+  instance_flex_memory_in_gbs = 1
   instance_flex_ocpus         = 1
   public_ip                   = "EPHEMERAL"
   shape                       = "VM.Standard.E4.Flex"
-  count                       = 1
+  count                       = 2
   instance_display_name = "xiuwei.guo-test"
 }
 
