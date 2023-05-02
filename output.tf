@@ -10,5 +10,5 @@ output "vcn_id" {
 
 
 output "availability_domain_list" {
-  value = data.oci_identity_availability_domains.availability_domains[*].id
+  value = data.oci_identity_availability_domains.availability_domains
 }
