@@ -21,6 +21,7 @@ variable "tenancy_ocid" {
 variable "auth_private_key_path" {
   type = string
   description = "oci account auth private key path"
+  default = null
 }
 
 variable "auth_private_key" {
