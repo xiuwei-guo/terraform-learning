@@ -67,7 +67,7 @@ resource "oci_core_route_table" "internet_route_table" {
 }
 
 # 创建一个实例
-module "compute-instance" {
+module "compute-instance" "k8s_master" {
   source  = "oracle-terraform-modules/compute-instance/oci"
   version = "2.4.1"
   # insert the 3 required variables here
@@ -76,12 +76,29 @@ module "compute-instance" {
   subnet_ocids                = [oci_core_subnet.dev_network.id]
   ssh_public_keys             = var.instance_ssh_public_keys
   instance_flex_memory_in_gbs = 1
-  instance_flex_ocpus         = 1
+  instance_flex_ocpus         = 4
   public_ip                   = "EPHEMERAL"
   shape                       = "VM.Standard.E4.Flex"
-  count                       = 0
-  instance_display_name       = "xiuwei.guo-test"
+  count                       = 1
+  instance_display_name       = "xk8s_master"
 }
 
+
+# 创建一个实例
+module "compute-instance" "k8s_worker" {
+  source  = "oracle-terraform-modules/compute-instance/oci"
+  version = "2.4.1"
+  # insert the 3 required variables here
+  compartment_ocid            = var.compartment_id
+  source_ocid                 = data.oci_core_images.list_image.images[0].id
+  subnet_ocids                = [oci_core_subnet.dev_network.id]
+  ssh_public_keys             = var.instance_ssh_public_keys
+  instance_flex_memory_in_gbs = 2
+  instance_flex_ocpus         = 8
+  public_ip                   = "EPHEMERAL"
+  shape                       = "VM.Standard.E4.Flex"
+  count                       = 2
+  instance_display_name       = "k8s_worker"
+}
 
 
