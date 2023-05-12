@@ -67,8 +67,7 @@ resource "oci_core_route_table" "internet_route_table" {
 }
 
 # 创建一个实例
-module "compute-instance" {
-  name = "k8s_master"
+module "compute-instance-1" {
   source  = "oracle-terraform-modules/compute-instance/oci"
   version = "2.4.1"
   # insert the 3 required variables here
@@ -86,8 +85,7 @@ module "compute-instance" {
 
 
 # 创建一个实例
-module "compute-instance" {
-  name = "k8s_worker"
+module "compute-instance-2" {
   source  = "oracle-terraform-modules/compute-instance/oci"
   version = "2.4.1"
   # insert the 3 required variables here
